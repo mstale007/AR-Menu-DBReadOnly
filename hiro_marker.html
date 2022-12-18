@@ -50,12 +50,25 @@
 
         window.onload = function() {
             //Loading Menu UI
-            fetch(backend_link+'/get-menu')
+            fetch(backend_link+'/home')
             .then(response => response.json())
             .then(resp_data => {
                 console.log(resp_data);
-                data=resp_data;
-                // data=resp_data['menus'];
+
+                info = resp_data['info'];
+                theme_info = info['theme'];
+
+                logo_image_link=info['image_url'];
+                primaryColor=theme_info['primary_color'];
+                secondaryColor=theme_info['secondary_color'];
+                primaryTextColor=theme_info['primary_text_color'];
+                secondaryTextColor=theme_info['secondary_text_color'];
+                quantityButtonColor=theme_info['quantity_button_color']
+
+                updateMenuUI();
+
+                // data=resp_data;
+                data=resp_data['menu'];
 
                 for (const group in data) {
                     if (Object.hasOwnProperty.call(data, group)) {
@@ -87,17 +100,7 @@
                         }
                     });
                 }
-                // info = resp_data['info'];
-                // theme_info = info['theme'];
 
-                // logo_image_link=info['image_url'];
-                // primaryColor=theme_info['primary_color'];
-                // secondaryColor=theme_info['secondary_color'];
-                // primaryTextColor=theme_info['primary_text_color'];
-                // secondaryTextColor=theme_info['secondary_text_color'];
-                // quantityButtonColor=theme_info['quantity_button_color']
-
-                updateMenuUI();
                 document.getElementById('screen_ui_popup_id').style.display="none";
                 console.log(devSignature, devSignatureStyle);
             });
@@ -196,7 +199,7 @@
         function view_ar(menu_item){
             document.getElementById('ar-view-info-title').innerText=menu_item.name;
             document.getElementById('ar-view-info-desc').innerText=menu_item.description;
-            document.getElementById('ar-view-info-price').innerText="Rs."+menu_item.price.value;
+            document.getElementById('ar-view-info-price').innerText=menu_item.price.displayText;
             document.getElementById('ar-view-preview-image').src=menu_item.preview_image;
 
             document.getElementById("Model").setAttribute('gltf-model',menu_item.model_link);
@@ -230,7 +233,7 @@
                         <img class="single-option-veg-nonveg-img" src="./resources/images/${menu_item.food_category}_symbol.png">
                         <span class="material-icons">${menu_item.ar_enabled?'view_in_ar':''}</span>
                     </div>
-                    <div class="single-option-info-price">Rs.${menu_item.price.value}</div>
+                    <div class="single-option-info-price">Rs.${menu_item.price.displayText}</div>
                 </div>
             </div>`;
             
