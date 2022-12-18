@@ -53,7 +53,6 @@
             fetch(backend_link+'/home')
             .then(response => response.json())
             .then(resp_data => {
-                console.log(resp_data);
 
                 info = resp_data['info'];
                 theme_info = info['theme'];

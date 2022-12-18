@@ -5,7 +5,7 @@ var secondaryColor="black";
 var secondaryTextColor="white";
 var quantityButtonColor="green";
 var logo_image_link="./resources/images/logo.png";
-var backend_link="https://node-js-server.onrender.com";
+var backend_link="https://menu-app-rwlj3.ondigitalocean.app/ar-menu-server";
 
 var data = {
     "Pizza Mania":[
