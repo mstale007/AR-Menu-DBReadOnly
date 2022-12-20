@@ -203,10 +203,10 @@
 
             document.getElementById("Model").setAttribute('gltf-model',menu_item.model_link);
             if(menu_item.food_category==="veg"){
-                document.getElementById('ar-view-info-veg-nonveg-img').src="/resources/images/veg_symbol.png";
+                document.getElementById('ar-view-info-veg-nonveg-img').src="./resources/images/veg_symbol.png";
             }
             else{
-                document.getElementById('ar-view-info-veg-nonveg-img').src="/resources/images/non_veg_symbol.png";
+                document.getElementById('ar-view-info-veg-nonveg-img').src="./resources/images/non_veg_symbol.png";
             }
 
             if(menu_item.ar_enabled){
@@ -289,12 +289,12 @@
     <a-scene vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true"
     embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'>
           <a-entity id='userCamera' camera>
-              <a-marker registerevents preset='custom' type='pattern' url="resources\markers\qr_pattern.patt" id="M1">
-                  <a-entity rotation="0 0 0" gltf-model="resources\models\plate.glb" id="Model"
+              <a-marker registerevents preset='custom' type='pattern' url=".\resources\markers\qr_pattern.patt" id="M1">
+                  <a-entity rotation="0 0 0" gltf-model="" id="Model"
                   scale='0 0 0' animation="property: rotation; to:0 360 0; dur: 10000; easing: linear; loop: true"
                   animation__2="property: scale; to:1 1 1; dur: 1000 easing: ease-elastic; startEvents: popup;"
                   animation__3="property: scale; to:0 0 0; dur: 1000 easing: easeInElastic; startEvents: popout;">
-                  <a-entity rotation="0 0 0" position="0 -0.1 0" gltf-model="resources\models\plate.glb" id="Model2" scale='1 1 1'></a-entity>
+                  <a-entity rotation="0 0 0" position="0 -0.1 0" gltf-model=".\resources\models\plate.glb" id="Model2" scale='1 1 1'></a-entity>
                 </a-entity>
 
                   <!-- <a-video id="Video" scale="1.2 2 1.2" rotation="-90 0 0" opacity="0"></a-video> -->
